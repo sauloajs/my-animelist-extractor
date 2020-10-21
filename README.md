@@ -1,4 +1,4 @@
-# my-animelist-top-list
+# my-animelist-extractor
 python script to extract the top 30 animes in myanimelist.net
 
 To use this code first run:
