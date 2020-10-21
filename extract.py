@@ -32,3 +32,5 @@ for x in soup.select('a.hoverinfo_trigger', href=True):
 
 with open('animes.json', 'w') as fp:
   json.dump(myanimelist, fp)
+
+print('Extraction finished')
