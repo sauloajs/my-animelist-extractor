@@ -1,5 +1,5 @@
-# my-animelist-top-list
-python script to extract the top animes in myanimelist.net and insert into a mongodb
+# my-animelist-extractor
+python script to extract the top 30 animes in myanimelist.net
 
 To use this code first run:
 
