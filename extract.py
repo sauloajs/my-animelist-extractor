@@ -15,6 +15,13 @@ myanimelist = []
 def pushAnime(anime):
   myanimelist.append(anime)
 
+def getImage(id):
+  response = urllib.request.urlopen('https://myanimelist.net/anime/'+str(id))
+  html_doc = response.read()
+  soup = BeautifulSoup(html_doc, 'html.parser')
+  img = soup.select('img.ac')
+  return img[0]['data-src']
+
 for x in soup.select('a.hoverinfo_trigger', href=True): 
   if pattern.search(x['href']):
     txt = x['href']
@@ -25,10 +32,10 @@ for x in soup.select('a.hoverinfo_trigger', href=True):
         pushAnime({
           "id": int(anime),
           "name": x.img['alt'].split('Anime: ')[1],
-          "img": x.img['data-srcset'].split(" ")[0]
+          "img": getImage(int(anime))
         })
       except:
-        print('Not spected string received')
+        print('Failed')
 
 with open('animes.json', 'w') as fp:
   json.dump(myanimelist, fp)
